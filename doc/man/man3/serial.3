@@ -1,0 +1,219 @@
+.TH "serial" 3 "Fri Sep 7 2018" "Version 0.1A" "foh-serial" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+serial \- Class for defining a serial port in software\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <serial\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBserial\fP ()"
+.br
+.ti -1c
+.RI "struct termios \fBif_attrib_set\fP (speed_t speed, int clen, bool parityOn, int parityType, int fctrl, bool stopbx)"
+.br
+.RI "Set attributes of a serial interface\&. "
+.ti -1c
+.RI "int \fBsetupSerialPort\fP (const char *portname, int speed)"
+.br
+.RI "Setup serial port\&. "
+.ti -1c
+.RI "int \fBwriteToSerialPort\fP (char **buf, size_t size)"
+.br
+.RI "Wrapper for \fB_serialPut()\fP "
+.ti -1c
+.RI "int \fBreadFromSerialPort\fP (char **buf, size_t size)"
+.br
+.RI "Read from a serial port\&. "
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "speed_t \fB__convBaud\fP (int num)"
+.br
+.RI "Conversion of an integer baud to speed_t baud\&. "
+.ti -1c
+.RI "int \fB_serialPut\fP (char **buf, size_t size)"
+.br
+.RI "Send characters on serial port\&. "
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fB_serfd\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class for defining a serial port in software\&. 
+.PP
+Definition at line 47 of file serial\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "serial::serial ()\fC [inline]\fP"
+
+.PP
+Definition at line 49 of file serial\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "speed_t serial::__convBaud (int num)\fC [private]\fP"
+
+.PP
+Conversion of an integer baud to speed_t baud\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInum\fP Wanted baud as int
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Baud converted to speed_t\&. (max 460800, min 50) 
+.RE
+.PP
+
+.PP
+Definition at line 37 of file serial\&.cpp\&.
+.SS "int serial::_serialPut (char ** buf, size_t size)\fC [private]\fP"
+
+.PP
+Send characters on serial port\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuf\fP Text buffer 
+.br
+\fIsize\fP Bytes to be sent
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Number of bytes written when successful, -1 otherwise\&. 
+.RE
+.PP
+
+.PP
+Definition at line 176 of file serial\&.cpp\&.
+.SS "struct termios serial::if_attrib_set (speed_t speed, int clen, bool parityOn, int parityType, int fctrl, bool stopbx)"
+
+.PP
+Set attributes of a serial interface\&. See https://linux.die.net/man/3/termios for further information on serial attributes\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIspeed\fP Baudrate in speed_t format 
+.br
+\fIclen\fP Byte length (5-8 bits) 
+.br
+\fIparityOn\fP Enables/Disables parity 
+.br
+\fIparityType\fP Sets the parity type (0: off, 1: even, 2: odd) 
+.br
+\fIfctrl\fP Sets the flow control type (0: off, 1: software, 2: hardware, 3: soft- and hardware) 
+.br
+\fIstopbx\fP Enables/Disables a second stop bit
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+New termios structure on success, -1 otherwise\&. 
+.RE
+.PP
+
+.PP
+Definition at line 73 of file serial\&.cpp\&.
+.SS "int serial::readFromSerialPort (char ** buf, size_t size)"
+
+.PP
+Read from a serial port\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuf\fP Text buffer 
+.br
+\fIsize\fP Buffer size
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Number of bytes read when successful, -1 otherwise\&. 
+.RE
+.PP
+
+.PP
+Definition at line 244 of file serial\&.cpp\&.
+.SS "int serial::setupSerialPort (const char * portname, int speed)"
+
+.PP
+Setup serial port\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIportname\fP Location of the block device (at /dev/) 
+.br
+\fIspeed\fP The wanted baud rate (as int)
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 on success, -1 otherwise\&. 
+.RE
+.PP
+
+.PP
+Definition at line 199 of file serial\&.cpp\&.
+.SS "int serial::writeToSerialPort (char ** buf, size_t size)"
+
+.PP
+Wrapper for \fB_serialPut()\fP 
+.PP
+\fBSee also:\fP
+.RS 4
+\fB_serialPut()\fP
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuf\fP Text buffer 
+.br
+\fIsize\fP Bytes to be sent
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Number of bytes written when successful, -1 otherwise\&.
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuf\fP Text buffer 
+.br
+\fIsize\fP Bytes to be sent
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Number of bytes written when successful, -1 otherwise\&. 
+.RE
+.PP
+
+.PP
+Definition at line 226 of file serial\&.cpp\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "int serial::_serfd\fC [private]\fP"
+Serial fd 
+.PP
+Definition at line 118 of file serial\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for foh-serial from the source code\&.

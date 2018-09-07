@@ -1,0 +1,200 @@
+\hypertarget{serial_8cpp_source}{}\section{serial.\+cpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001 }
+\DoxyCodeLine{00028 \textcolor{preprocessor}{\#include "\mbox{\hyperlink{serial_8h}{serial.h}}"}}
+\DoxyCodeLine{00029 }
+\DoxyCodeLine{\Hypertarget{serial_8cpp_source_l00037}\mbox{\hyperlink{classserial_a3e2ffceef5cd07f53b724da38433a6f0}{00037}} speed\_t \mbox{\hyperlink{classserial_a3e2ffceef5cd07f53b724da38433a6f0}{serial::\_\_convBaud}}(\textcolor{keywordtype}{int} num) \{}
+\DoxyCodeLine{00038     \textcolor{keywordflow}{if} (num >= 460800) \textcolor{keywordflow}{return} B460800;}
+\DoxyCodeLine{00039     \textcolor{keywordflow}{if} (num >= 230400) \textcolor{keywordflow}{return} B230400;}
+\DoxyCodeLine{00040     \textcolor{keywordflow}{if} (num >= 115200) \textcolor{keywordflow}{return} B115200;}
+\DoxyCodeLine{00041     \textcolor{keywordflow}{if} (num >= 57600) \textcolor{keywordflow}{return} B57600;}
+\DoxyCodeLine{00042     \textcolor{keywordflow}{if} (num >= 38400) \textcolor{keywordflow}{return} B38400;}
+\DoxyCodeLine{00043     \textcolor{keywordflow}{if} (num >= 19200) \textcolor{keywordflow}{return} B19200;}
+\DoxyCodeLine{00044     \textcolor{keywordflow}{if} (num >= 9600) \textcolor{keywordflow}{return} B9600;}
+\DoxyCodeLine{00045     \textcolor{keywordflow}{if} (num >= 4800) \textcolor{keywordflow}{return} B4800;}
+\DoxyCodeLine{00046     \textcolor{keywordflow}{if} (num >= 2400) \textcolor{keywordflow}{return} B2400;}
+\DoxyCodeLine{00047     \textcolor{keywordflow}{if} (num >= 1800) \textcolor{keywordflow}{return} B1800;}
+\DoxyCodeLine{00048     \textcolor{keywordflow}{if} (num >= 1200) \textcolor{keywordflow}{return} B1200;}
+\DoxyCodeLine{00049     \textcolor{keywordflow}{if} (num >= 600) \textcolor{keywordflow}{return} B600;}
+\DoxyCodeLine{00050     \textcolor{keywordflow}{if} (num >= 300) \textcolor{keywordflow}{return} B300;}
+\DoxyCodeLine{00051     \textcolor{keywordflow}{if} (num >= 200) \textcolor{keywordflow}{return} B200;}
+\DoxyCodeLine{00052     \textcolor{keywordflow}{if} (num >= 150) \textcolor{keywordflow}{return} B150;}
+\DoxyCodeLine{00053     \textcolor{keywordflow}{if} (num >= 134) \textcolor{keywordflow}{return} B134;}
+\DoxyCodeLine{00054     \textcolor{keywordflow}{if} (num >= 110) \textcolor{keywordflow}{return} B110;}
+\DoxyCodeLine{00055     \textcolor{keywordflow}{if} (num >= 75) \textcolor{keywordflow}{return} B75;}
+\DoxyCodeLine{00056     \textcolor{keywordflow}{return} B50;}
+\DoxyCodeLine{00057 \}}
+\DoxyCodeLine{00058 }
+\DoxyCodeLine{\Hypertarget{serial_8cpp_source_l00073}\mbox{\hyperlink{classserial_a51a3e798aa1bb4c2c50a34308b47b4fc}{00073}} \textcolor{keyword}{struct }termios \mbox{\hyperlink{classserial}{serial}}::if\_attrib\_set(speed\_t speed, int clen, bool parityOn, int parityType, int fctrl, bool stopbx) \{}
+\DoxyCodeLine{00074     \textcolor{keyword}{struct }termios tty;}
+\DoxyCodeLine{00075     \textcolor{keyword}{struct }termios ftty;}
+\DoxyCodeLine{00076     memset(\&tty, 0, \textcolor{keyword}{sizeof} tty);}
+\DoxyCodeLine{00077     memset(\&ftty, 0, \textcolor{keyword}{sizeof} ftty);}
+\DoxyCodeLine{00078 }
+\DoxyCodeLine{00079     \textcolor{comment}{//Obtain current termios attributes}}
+\DoxyCodeLine{00080     \textcolor{keywordflow}{if} (tcgetattr(\_serfd, \&tty) != 0) \textcolor{keywordflow}{return} ftty;}
+\DoxyCodeLine{00081 }
+\DoxyCodeLine{00082     \textcolor{comment}{//Sanity checking}}
+\DoxyCodeLine{00083     \textcolor{keywordflow}{if} (!speed) \textcolor{keywordflow}{return} ftty;}
+\DoxyCodeLine{00084     \textcolor{keywordflow}{if} (clen < 5 || clen > 8) \textcolor{keywordflow}{return} ftty;}
+\DoxyCodeLine{00085 }
+\DoxyCodeLine{00086     \textcolor{comment}{//Set I/O speed}}
+\DoxyCodeLine{00087     cfsetospeed(\&tty, speed);}
+\DoxyCodeLine{00088     cfsetispeed(\&tty, speed);}
+\DoxyCodeLine{00089     tty.c\_cflag |= speed;}
+\DoxyCodeLine{00090 }
+\DoxyCodeLine{00091     \textcolor{comment}{//Set byte length}}
+\DoxyCodeLine{00092     \textcolor{keywordflow}{if} (clen == 5)}
+\DoxyCodeLine{00093         tty.c\_cflag |= CS5;}
+\DoxyCodeLine{00094     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (clen == 6)}
+\DoxyCodeLine{00095         tty.c\_cflag |= CS6;}
+\DoxyCodeLine{00096     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (clen == 7)}
+\DoxyCodeLine{00097         tty.c\_cflag |= CS7;}
+\DoxyCodeLine{00098     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (clen == 8)}
+\DoxyCodeLine{00099         tty.c\_cflag |= CS8;}
+\DoxyCodeLine{00100 }
+\DoxyCodeLine{00101     tty.c\_cflag |= CLOCAL;}
+\DoxyCodeLine{00102     tty.c\_cflag |= CREAD;}
+\DoxyCodeLine{00103     }
+\DoxyCodeLine{00104     tty.c\_iflag |= ~IGNBRK;}
+\DoxyCodeLine{00105     tty.c\_iflag \&= ~BRKINT;}
+\DoxyCodeLine{00106 }
+\DoxyCodeLine{00107     tty.c\_iflag \&= ~ICRNL;}
+\DoxyCodeLine{00108     tty.c\_iflag \&= ~IGNCR;}
+\DoxyCodeLine{00109 }
+\DoxyCodeLine{00110     tty.c\_lflag |= ECHO | ECHOE;}
+\DoxyCodeLine{00111     tty.c\_oflag = 0;}
+\DoxyCodeLine{00112     tty.c\_cc[VMIN]  = 1;}
+\DoxyCodeLine{00113     tty.c\_cc[VTIME] = 5;}
+\DoxyCodeLine{00114 }
+\DoxyCodeLine{00115     \textcolor{comment}{//Set flow control options}}
+\DoxyCodeLine{00116     \textcolor{keywordflow}{if} (fctrl == 0) \{}
+\DoxyCodeLine{00117         tty.c\_iflag \&= ~(IXON | IXOFF | IXANY);}
+\DoxyCodeLine{00118         tty.c\_cflag \&= ~CRTSCTS;}
+\DoxyCodeLine{00119     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (fctrl == 1) \{}
+\DoxyCodeLine{00120         tty.c\_iflag |= ~(IXON | IXOFF | IXANY);}
+\DoxyCodeLine{00121         tty.c\_cflag \&= ~CRTSCTS;}
+\DoxyCodeLine{00122     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (fctrl == 2) \{}
+\DoxyCodeLine{00123         tty.c\_iflag \&= ~(IXON | IXOFF | IXANY);}
+\DoxyCodeLine{00124         tty.c\_cflag |= ~CRTSCTS;}
+\DoxyCodeLine{00125     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (fctrl == 3) \{}
+\DoxyCodeLine{00126         tty.c\_iflag |= ~(IXON | IXOFF | IXANY);}
+\DoxyCodeLine{00127         tty.c\_cflag |= ~CRTSCTS;}
+\DoxyCodeLine{00128     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00129         \textcolor{comment}{//Invalid flow control option}}
+\DoxyCodeLine{00130         \textcolor{keywordflow}{return} ftty;}
+\DoxyCodeLine{00131     \}}
+\DoxyCodeLine{00132 }
+\DoxyCodeLine{00133     \textcolor{comment}{//Set parity options}}
+\DoxyCodeLine{00134     \textcolor{keywordflow}{if} (parityOn) \{}
+\DoxyCodeLine{00135         \textcolor{keywordflow}{if} (parityType == 1) \{}
+\DoxyCodeLine{00136             tty.c\_cflag |= ~(PARENB);}
+\DoxyCodeLine{00137             tty.c\_iflag \&= ~IGNPAR;}
+\DoxyCodeLine{00138             tty.c\_iflag |= ~PARMRK;}
+\DoxyCodeLine{00139             tty.c\_iflag |= ~INPCK;}
+\DoxyCodeLine{00140         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (parityType == 2) \{}
+\DoxyCodeLine{00141             tty.c\_cflag |= ~(PARENB | PARODD);}
+\DoxyCodeLine{00142             tty.c\_iflag \&= ~IGNPAR;}
+\DoxyCodeLine{00143             tty.c\_iflag |= ~PARMRK;}
+\DoxyCodeLine{00144             tty.c\_iflag |= ~INPCK;}
+\DoxyCodeLine{00145         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00146             \textcolor{comment}{//Invalid parity option}}
+\DoxyCodeLine{00147             \textcolor{keywordflow}{return} ftty;}
+\DoxyCodeLine{00148         \}}
+\DoxyCodeLine{00149     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{00150         tty.c\_cflag \&= ~(PARENB | PARODD);}
+\DoxyCodeLine{00151         tty.c\_iflag |= ~IGNPAR;}
+\DoxyCodeLine{00152         tty.c\_iflag \&= ~PARMRK;}
+\DoxyCodeLine{00153         tty.c\_iflag \&= ~INPCK;}
+\DoxyCodeLine{00154     \}}
+\DoxyCodeLine{00155 }
+\DoxyCodeLine{00156     \textcolor{comment}{//Set stop bit option}}
+\DoxyCodeLine{00157     \textcolor{keywordflow}{if} (!stopbx)}
+\DoxyCodeLine{00158         tty.c\_cflag \&= ~CSTOPB;}
+\DoxyCodeLine{00159     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00160         tty.c\_cflag |= ~CSTOPB;}
+\DoxyCodeLine{00161 }
+\DoxyCodeLine{00162     \textcolor{comment}{//Apply new termios attributes}}
+\DoxyCodeLine{00163     \textcolor{keywordflow}{if} (tcsetattr(\_serfd, TCSANOW, \&tty) != 0) \textcolor{keywordflow}{return} ftty;}
+\DoxyCodeLine{00164 }
+\DoxyCodeLine{00165     \textcolor{keywordflow}{return} tty;}
+\DoxyCodeLine{00166 \}}
+\DoxyCodeLine{00167 }
+\DoxyCodeLine{\Hypertarget{serial_8cpp_source_l00176}\mbox{\hyperlink{classserial_a4c9d6896cfd99ee1f521bbba7a35cac7}{00176}} \textcolor{keywordtype}{int} \mbox{\hyperlink{classserial_a4c9d6896cfd99ee1f521bbba7a35cac7}{serial::\_serialPut}}(\textcolor{keywordtype}{char}** buf, \textcolor{keywordtype}{size\_t} size) \{}
+\DoxyCodeLine{00177     \textcolor{keywordtype}{size\_t} i;}
+\DoxyCodeLine{00178     ssize\_t written;}
+\DoxyCodeLine{00179 }
+\DoxyCodeLine{00180     \textcolor{keywordflow}{for} (i = 0; i < size; i++) \{}
+\DoxyCodeLine{00181         written = write(\mbox{\hyperlink{classserial_af9528290d0aecf4a4377fbacf3431a17}{\_serfd}}, buf[i], 1);}
+\DoxyCodeLine{00182         \textcolor{keywordflow}{if} (written <= 0) \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00183     \}}
+\DoxyCodeLine{00184 }
+\DoxyCodeLine{00185     \textcolor{comment}{//Indicate we stopped earlier. Something with write() went wrong!}}
+\DoxyCodeLine{00186     \textcolor{keywordflow}{if} (i++ != size) i = -1;}
+\DoxyCodeLine{00187 }
+\DoxyCodeLine{00188     \textcolor{keywordflow}{return} i;}
+\DoxyCodeLine{00189 \}}
+\DoxyCodeLine{00190 }
+\DoxyCodeLine{\Hypertarget{serial_8cpp_source_l00199}\mbox{\hyperlink{classserial_a0490dba2c7616a997ca6db6903f6865a}{00199}} \textcolor{keywordtype}{int} \mbox{\hyperlink{classserial_a0490dba2c7616a997ca6db6903f6865a}{serial::setupSerialPort}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* portname, \textcolor{keywordtype}{int} speed) \{}
+\DoxyCodeLine{00200     \textcolor{comment}{//Open \_serfd}}
+\DoxyCodeLine{00201     \mbox{\hyperlink{classserial_af9528290d0aecf4a4377fbacf3431a17}{\_serfd}} = open(portname, O\_RDWR | O\_NOCTTY | O\_SYNC);}
+\DoxyCodeLine{00202 }
+\DoxyCodeLine{00203     \textcolor{comment}{//Is \_serfd valid?}}
+\DoxyCodeLine{00204     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classserial_af9528290d0aecf4a4377fbacf3431a17}{\_serfd}} < 0) \textcolor{keywordflow}{return} -1;}
+\DoxyCodeLine{00205 }
+\DoxyCodeLine{00206     \textcolor{comment}{//Set attributes}}
+\DoxyCodeLine{00207     \textcolor{keyword}{struct }termios a;}
+\DoxyCodeLine{00208     a = \mbox{\hyperlink{classserial_a51a3e798aa1bb4c2c50a34308b47b4fc}{if\_attrib\_set}}(\mbox{\hyperlink{classserial_a3e2ffceef5cd07f53b724da38433a6f0}{\_\_convBaud}}(speed), 8, \textcolor{keyword}{false}, 0, 0, 0);}
+\DoxyCodeLine{00209     \textcolor{keywordflow}{if} (a.c\_cflag == 0) \textcolor{keywordflow}{return} -1;}
+\DoxyCodeLine{00210 }
+\DoxyCodeLine{00211     \textcolor{comment}{//Flush port (prevent read bugs)}}
+\DoxyCodeLine{00212     usleep(10000);}
+\DoxyCodeLine{00213     tcflush(\mbox{\hyperlink{classserial_af9528290d0aecf4a4377fbacf3431a17}{\_serfd}}, TCIOFLUSH);}
+\DoxyCodeLine{00214 }
+\DoxyCodeLine{00215     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{00216 \}}
+\DoxyCodeLine{00217 }
+\DoxyCodeLine{\Hypertarget{serial_8cpp_source_l00226}\mbox{\hyperlink{classserial_af9701c5cbb3402a67291c07d57b3d535}{00226}} \textcolor{keywordtype}{int} \mbox{\hyperlink{classserial_af9701c5cbb3402a67291c07d57b3d535}{serial::writeToSerialPort}}(\textcolor{keywordtype}{char}** buf, \textcolor{keywordtype}{size\_t} size) \{}
+\DoxyCodeLine{00227     \textcolor{keywordtype}{int} ret = \mbox{\hyperlink{classserial_a4c9d6896cfd99ee1f521bbba7a35cac7}{\_serialPut}}(buf, size);}
+\DoxyCodeLine{00228 }
+\DoxyCodeLine{00229     \textcolor{comment}{//Flush buffer}}
+\DoxyCodeLine{00230     usleep(10000);}
+\DoxyCodeLine{00231     tcflush(\mbox{\hyperlink{classserial_af9528290d0aecf4a4377fbacf3431a17}{\_serfd}}, TCIOFLUSH);}
+\DoxyCodeLine{00232 }
+\DoxyCodeLine{00233     \textcolor{keywordflow}{return} size;}
+\DoxyCodeLine{00234 \}}
+\DoxyCodeLine{00235 }
+\DoxyCodeLine{\Hypertarget{serial_8cpp_source_l00244}\mbox{\hyperlink{classserial_a0b1ac3334e65f7cb45379aa764c983bf}{00244}} \textcolor{keywordtype}{int} \mbox{\hyperlink{classserial_a0b1ac3334e65f7cb45379aa764c983bf}{serial::readFromSerialPort}}(\textcolor{keywordtype}{char}** buf, \textcolor{keywordtype}{size\_t} size) \{}
+\DoxyCodeLine{00245     \textcolor{keywordtype}{int} n;}
+\DoxyCodeLine{00246 }
+\DoxyCodeLine{00247     \textcolor{comment}{//Empty the buffer}}
+\DoxyCodeLine{00248     usleep(10000);}
+\DoxyCodeLine{00249     tcflush(\mbox{\hyperlink{classserial_af9528290d0aecf4a4377fbacf3431a17}{\_serfd}}, TCIOFLUSH);}
+\DoxyCodeLine{00250 }
+\DoxyCodeLine{00251     \textcolor{comment}{//Wait for a newline byte (assume we're on a CRNL system)}}
+\DoxyCodeLine{00252     \textcolor{keywordtype}{char} tmp;}
+\DoxyCodeLine{00253     \textcolor{keywordflow}{while} (tmp != \textcolor{charliteral}{'\(\backslash\)n'}) \{}
+\DoxyCodeLine{00254         tcflush(\mbox{\hyperlink{classserial_af9528290d0aecf4a4377fbacf3431a17}{\_serfd}}, TCIOFLUSH);}
+\DoxyCodeLine{00255         n = read(\mbox{\hyperlink{classserial_af9528290d0aecf4a4377fbacf3431a17}{\_serfd}}, \&tmp, 1);}
+\DoxyCodeLine{00256         \textcolor{keywordflow}{if} (n == -1) \textcolor{keywordflow}{return} -1;}
+\DoxyCodeLine{00257     \}}
+\DoxyCodeLine{00258 }
+\DoxyCodeLine{00259     \textcolor{keywordtype}{char} \_cbuf;}
+\DoxyCodeLine{00260     \textcolor{keywordtype}{size\_t} \_read;}
+\DoxyCodeLine{00261     \textcolor{keywordflow}{while} (\_cbuf != \textcolor{charliteral}{'\(\backslash\)n'} \&\& \_read < size) \{}
+\DoxyCodeLine{00262         n = read(\mbox{\hyperlink{classserial_af9528290d0aecf4a4377fbacf3431a17}{\_serfd}}, \&\_cbuf, 1);}
+\DoxyCodeLine{00263         \textcolor{keywordflow}{if} (n == -1) \textcolor{keywordflow}{return} -1;}
+\DoxyCodeLine{00264 }
+\DoxyCodeLine{00265         \_read++;}
+\DoxyCodeLine{00266 }
+\DoxyCodeLine{00267         \textcolor{comment}{//Write only to our output if we don't have to deal with delimiters}}
+\DoxyCodeLine{00268         \textcolor{keywordflow}{if} (\_cbuf != \textcolor{charliteral}{'\(\backslash\)n'} || \_cbuf != \textcolor{charliteral}{'\(\backslash\)r'})}
+\DoxyCodeLine{00269             strncat(*buf, \&\_cbuf, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{00270     \}}
+\DoxyCodeLine{00271 }
+\DoxyCodeLine{00272     \_read--;}
+\DoxyCodeLine{00273 }
+\DoxyCodeLine{00274     \textcolor{keywordflow}{return} \_read;}
+\DoxyCodeLine{00275 \}}
+\end{DoxyCode}

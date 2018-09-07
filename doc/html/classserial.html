@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: serial Class Reference</title>
+<title>foh-serial: serial Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">foh-serial
+   &#160;<span id="projectnumber">0.1A</span>
    </div>
+   <div id="projectbrief">Yet another serial communication library for linux</div>
   </td>
  </tr>
  </tbody>
@@ -63,6 +65,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classserial-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">serial Class Reference</div>  </div>
@@ -76,6 +80,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:af83de4f3ce9a1973df8c4d93358d6d2d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserial.html#af83de4f3ce9a1973df8c4d93358d6d2d">serial</a> ()</td></tr>
+<tr class="separator:af83de4f3ce9a1973df8c4d93358d6d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51a3e798aa1bb4c2c50a34308b47b4fc"><td class="memItemLeft" align="right" valign="top">struct termios&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserial.html#a51a3e798aa1bb4c2c50a34308b47b4fc">if_attrib_set</a> (speed_t speed, int clen, bool parityOn, int parityType, int fctrl, bool stopbx)</td></tr>
 <tr class="memdesc:a51a3e798aa1bb4c2c50a34308b47b4fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set attributes of a serial interface.  <a href="#a51a3e798aa1bb4c2c50a34308b47b4fc">More...</a><br /></td></tr>
 <tr class="separator:a51a3e798aa1bb4c2c50a34308b47b4fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -83,15 +89,144 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0490dba2c7616a997ca6db6903f6865a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup serial port.  <a href="#a0490dba2c7616a997ca6db6903f6865a">More...</a><br /></td></tr>
 <tr class="separator:a0490dba2c7616a997ca6db6903f6865a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9701c5cbb3402a67291c07d57b3d535"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserial.html#af9701c5cbb3402a67291c07d57b3d535">writeToSerialPort</a> (char **buf, size_t size)</td></tr>
-<tr class="memdesc:af9701c5cbb3402a67291c07d57b3d535"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for _serialPut()  <a href="#af9701c5cbb3402a67291c07d57b3d535">More...</a><br /></td></tr>
+<tr class="memdesc:af9701c5cbb3402a67291c07d57b3d535"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper for <a class="el" href="classserial.html#a4c9d6896cfd99ee1f521bbba7a35cac7" title="Send characters on serial port.">_serialPut()</a>  <a href="#af9701c5cbb3402a67291c07d57b3d535">More...</a><br /></td></tr>
 <tr class="separator:af9701c5cbb3402a67291c07d57b3d535"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b1ac3334e65f7cb45379aa764c983bf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserial.html#a0b1ac3334e65f7cb45379aa764c983bf">readFromSerialPort</a> (char **buf, size_t size)</td></tr>
 <tr class="memdesc:a0b1ac3334e65f7cb45379aa764c983bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read from a serial port.  <a href="#a0b1ac3334e65f7cb45379aa764c983bf">More...</a><br /></td></tr>
 <tr class="separator:a0b1ac3334e65f7cb45379aa764c983bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a3e2ffceef5cd07f53b724da38433a6f0"><td class="memItemLeft" align="right" valign="top">speed_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserial.html#a3e2ffceef5cd07f53b724da38433a6f0">__convBaud</a> (int num)</td></tr>
+<tr class="memdesc:a3e2ffceef5cd07f53b724da38433a6f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion of an integer baud to speed_t baud.  <a href="#a3e2ffceef5cd07f53b724da38433a6f0">More...</a><br /></td></tr>
+<tr class="separator:a3e2ffceef5cd07f53b724da38433a6f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c9d6896cfd99ee1f521bbba7a35cac7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserial.html#a4c9d6896cfd99ee1f521bbba7a35cac7">_serialPut</a> (char **buf, size_t size)</td></tr>
+<tr class="memdesc:a4c9d6896cfd99ee1f521bbba7a35cac7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send characters on serial port.  <a href="#a4c9d6896cfd99ee1f521bbba7a35cac7">More...</a><br /></td></tr>
+<tr class="separator:a4c9d6896cfd99ee1f521bbba7a35cac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:af9528290d0aecf4a4377fbacf3431a17"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserial.html#af9528290d0aecf4a4377fbacf3431a17">_serfd</a></td></tr>
+<tr class="separator:af9528290d0aecf4a4377fbacf3431a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p class="">Class for defining a serial port in software. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+
+<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00047">47</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="af83de4f3ce9a1973df8c4d93358d6d2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af83de4f3ce9a1973df8c4d93358d6d2d">&#9670;&nbsp;</a></span>serial()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">serial::serial </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00049">49</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3e2ffceef5cd07f53b724da38433a6f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e2ffceef5cd07f53b724da38433a6f0">&#9670;&nbsp;</a></span>__convBaud()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">speed_t serial::__convBaud </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Conversion of an integer baud to speed_t baud. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num</td><td>Wanted baud as int</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Baud converted to speed_t. (max 460800, min 50) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="serial_8cpp_source.html#l00037">37</a> of file <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4c9d6896cfd99ee1f521bbba7a35cac7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c9d6896cfd99ee1f521bbba7a35cac7">&#9670;&nbsp;</a></span>_serialPut()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int serial::_serialPut </td>
+          <td>(</td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Send characters on serial port. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buf</td><td>Text buffer </td></tr>
+    <tr><td class="paramname">size</td><td>Bytes to be sent</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of bytes written when successful, -1 otherwise. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="serial_8cpp_source.html#l00176">176</a> of file <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
+
+</div>
+</div>
 <a id="a51a3e798aa1bb4c2c50a34308b47b4fc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a51a3e798aa1bb4c2c50a34308b47b4fc">&#9670;&nbsp;</a></span>if_attrib_set()</h2>
 
@@ -157,6 +292,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>New termios structure on success, -1 otherwise. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="serial_8cpp_source.html#l00073">73</a> of file <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a0b1ac3334e65f7cb45379aa764c983bf"></a>
@@ -194,6 +331,8 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Number of bytes read when successful, -1 otherwise. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="serial_8cpp_source.html#l00244">244</a> of file <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
 
 </div>
 </div>
@@ -233,6 +372,8 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 on success, -1 otherwise. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="serial_8cpp_source.html#l00199">199</a> of file <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
+
 </div>
 </div>
 <a id="af9701c5cbb3402a67291c07d57b3d535"></a>
@@ -261,8 +402,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Wrapper for _serialPut() </p>
-<dl class="section see"><dt>See also</dt><dd>_serialPut()</dd></dl>
+<p>Wrapper for <a class="el" href="classserial.html#a4c9d6896cfd99ee1f521bbba7a35cac7" title="Send characters on serial port.">_serialPut()</a> </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classserial.html#a4c9d6896cfd99ee1f521bbba7a35cac7" title="Send characters on serial port.">_serialPut()</a></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buf</td><td>Text buffer </td></tr>
@@ -280,16 +421,44 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Number of bytes written when successful, -1 otherwise. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="serial_8cpp_source.html#l00226">226</a> of file <a class="el" href="serial_8cpp_source.html">serial.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="af9528290d0aecf4a4377fbacf3431a17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9528290d0aecf4a4377fbacf3431a17">&#9670;&nbsp;</a></span>_serfd</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int serial::_serfd</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p class="">Serial fd </p>
+
+<p class="definition">Definition at line <a class="el" href="serial_8h_source.html#l00118">118</a> of file <a class="el" href="serial_8h_source.html">serial.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="serial_8h_source.html">serial.h</a></li>
-<li><a class="el" href="serial_8cpp.html">serial.cpp</a></li>
+<li><a class="el" href="serial_8cpp_source.html">serial.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Sep 7 2018 14:59:18 for foh-serial by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.15
 </small></address>
