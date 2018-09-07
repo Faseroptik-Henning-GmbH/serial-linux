@@ -1,0 +1,137 @@
+\hypertarget{classserial}{}\section{serial Class Reference}
+\label{classserial}\index{serial@{serial}}
+
+
+Class for defining a serial port in software.  
+
+
+
+
+{\ttfamily \#include $<$serial.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct termios \mbox{\hyperlink{classserial_a51a3e798aa1bb4c2c50a34308b47b4fc}{if\+\_\+attrib\+\_\+set}} (speed\+\_\+t speed, int clen, bool parity\+On, int parity\+Type, int fctrl, bool stopbx)
+\begin{DoxyCompactList}\small\item\em Set attributes of a serial interface. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classserial_a0490dba2c7616a997ca6db6903f6865a}{setup\+Serial\+Port}} (const char $\ast$portname, int speed)
+\begin{DoxyCompactList}\small\item\em Setup serial port. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classserial_af9701c5cbb3402a67291c07d57b3d535}{write\+To\+Serial\+Port}} (char $\ast$$\ast$buf, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Wrapper for \+\_\+serial\+Put() \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classserial_a0b1ac3334e65f7cb45379aa764c983bf}{read\+From\+Serial\+Port}} (char $\ast$$\ast$buf, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Read from a serial port. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for defining a serial port in software. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classserial_a51a3e798aa1bb4c2c50a34308b47b4fc}\label{classserial_a51a3e798aa1bb4c2c50a34308b47b4fc}} 
+\index{serial@{serial}!if\+\_\+attrib\+\_\+set@{if\+\_\+attrib\+\_\+set}}
+\index{if\+\_\+attrib\+\_\+set@{if\+\_\+attrib\+\_\+set}!serial@{serial}}
+\subsubsection{\texorpdfstring{if\+\_\+attrib\+\_\+set()}{if\_attrib\_set()}}
+{\footnotesize\ttfamily struct termios serial\+::if\+\_\+attrib\+\_\+set (\begin{DoxyParamCaption}\item[{speed\+\_\+t}]{speed,  }\item[{int}]{clen,  }\item[{bool}]{parity\+On,  }\item[{int}]{parity\+Type,  }\item[{int}]{fctrl,  }\item[{bool}]{stopbx }\end{DoxyParamCaption})}
+
+
+
+Set attributes of a serial interface. 
+
+See \href{https://linux.die.net/man/3/termios}{\tt https\+://linux.\+die.\+net/man/3/termios} for further information on serial attributes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & Baudrate in speed\+\_\+t format \\
+\hline
+{\em clen} & Byte length (5-\/8 bits) \\
+\hline
+{\em parity\+On} & Enables/\+Disables parity \\
+\hline
+{\em parity\+Type} & Sets the parity type (0\+: off, 1\+: even, 2\+: odd) \\
+\hline
+{\em fctrl} & Sets the flow control type (0\+: off, 1\+: software, 2\+: hardware, 3\+: soft-\/ and hardware) \\
+\hline
+{\em stopbx} & Enables/\+Disables a second stop bit\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New termios structure on success, -\/1 otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classserial_a0b1ac3334e65f7cb45379aa764c983bf}\label{classserial_a0b1ac3334e65f7cb45379aa764c983bf}} 
+\index{serial@{serial}!read\+From\+Serial\+Port@{read\+From\+Serial\+Port}}
+\index{read\+From\+Serial\+Port@{read\+From\+Serial\+Port}!serial@{serial}}
+\subsubsection{\texorpdfstring{read\+From\+Serial\+Port()}{readFromSerialPort()}}
+{\footnotesize\ttfamily int serial\+::read\+From\+Serial\+Port (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{buf,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Read from a serial port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & Text buffer \\
+\hline
+{\em size} & Buffer size\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of bytes read when successful, -\/1 otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classserial_a0490dba2c7616a997ca6db6903f6865a}\label{classserial_a0490dba2c7616a997ca6db6903f6865a}} 
+\index{serial@{serial}!setup\+Serial\+Port@{setup\+Serial\+Port}}
+\index{setup\+Serial\+Port@{setup\+Serial\+Port}!serial@{serial}}
+\subsubsection{\texorpdfstring{setup\+Serial\+Port()}{setupSerialPort()}}
+{\footnotesize\ttfamily int serial\+::setup\+Serial\+Port (\begin{DoxyParamCaption}\item[{const char $\ast$}]{portname,  }\item[{int}]{speed }\end{DoxyParamCaption})}
+
+
+
+Setup serial port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em portname} & Location of the block device (at /dev/) \\
+\hline
+{\em speed} & The wanted baud rate (as int)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classserial_af9701c5cbb3402a67291c07d57b3d535}\label{classserial_af9701c5cbb3402a67291c07d57b3d535}} 
+\index{serial@{serial}!write\+To\+Serial\+Port@{write\+To\+Serial\+Port}}
+\index{write\+To\+Serial\+Port@{write\+To\+Serial\+Port}!serial@{serial}}
+\subsubsection{\texorpdfstring{write\+To\+Serial\+Port()}{writeToSerialPort()}}
+{\footnotesize\ttfamily int serial\+::write\+To\+Serial\+Port (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{buf,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Wrapper for \+\_\+serial\+Put() 
+
+\begin{DoxySeeAlso}{See also}
+\+\_\+serial\+Put()
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & Text buffer \\
+\hline
+{\em size} & Bytes to be sent\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of bytes written when successful, -\/1 otherwise.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & Text buffer \\
+\hline
+{\em size} & Bytes to be sent\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of bytes written when successful, -\/1 otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{serial_8h}{serial.\+h}}\item 
+\mbox{\hyperlink{serial_8cpp}{serial.\+cpp}}\end{DoxyCompactItemize}
