@@ -1,4 +1,4 @@
-.TH "serial.h" 3 "Fri Sep 7 2018" "Version 0.1A" "foh-serial" \" -*- nroff -*-
+.TH "serial.h" 3 "Tue Mar 19 2019" "Version 0.1.1" "foh-serial" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -7,19 +7,19 @@ serial.h \- Header for dealing with serial communication\&.
 .SH SYNOPSIS
 .br
 .PP
-\fC#include <stdio\&.h>\fP
+\fC#include <cstdio>\fP
 .br
-\fC#include <string\&.h>\fP
+\fC#include <cstring>\fP
 .br
-\fC#include <errno\&.h>\fP
+\fC#include <cerrno>\fP
 .br
-\fC#include <limits\&.h>\fP
+\fC#include <climits>\fP
 .br
-\fC#include <stdlib\&.h>\fP
+\fC#include <cstdlib>\fP
 .br
 \fC#include <termios\&.h>\fP
 .br
-\fC#include <ctype\&.h>\fP
+\fC#include <cctype>\fP
 .br
 \fC#include <fcntl\&.h>\fP
 .br
@@ -37,12 +37,14 @@ serial.h \- Header for dealing with serial communication\&.
 .br
 \fC#include <unistd\&.h>\fP
 .br
+\fC#include <iostream>\fP
+.br
 
 .SS "Classes"
 
 .in +1c
 .ti -1c
-.RI "class \fBserial\fP"
+.RI "class \fBFOHSerial\fP"
 .br
 .RI "Class for defining a serial port in software\&. "
 .in -1c

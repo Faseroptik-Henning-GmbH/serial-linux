@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['serial',['serial',['../classserial.html',1,'']]]
+  ['fohserial',['FOHSerial',['../classFOHSerial.html',1,'']]]
 ];

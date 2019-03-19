@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['writetoserialport',['writeToSerialPort',['../classserial.html#af9701c5cbb3402a67291c07d57b3d535',1,'serial']]]
+  ['serial_2ecpp',['serial.cpp',['../serial_8cpp.html',1,'']]],
+  ['serial_2eh',['serial.h',['../serial_8h.html',1,'']]],
+  ['setupserialport',['setupSerialPort',['../classFOHSerial.html#ad76591cc93c0abea4acdbc3ebb47435b',1,'FOHSerial']]]
 ];

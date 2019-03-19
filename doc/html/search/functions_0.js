@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['_5f_5fconvbaud',['__convBaud',['../classserial.html#a3e2ffceef5cd07f53b724da38433a6f0',1,'serial']]],
-  ['_5fserialput',['_serialPut',['../classserial.html#a4c9d6896cfd99ee1f521bbba7a35cac7',1,'serial']]]
+  ['_5f_5fconvbaud',['__convBaud',['../classFOHSerial.html#adad9afc88e0b6626d623fc19abb41c90',1,'FOHSerial']]],
+  ['_5fserialput',['_serialPut',['../classFOHSerial.html#add9b2e556b56459b2eddc9b71f5c80ed',1,'FOHSerial']]]
 ];

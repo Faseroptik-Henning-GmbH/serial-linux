@@ -30,6 +30,8 @@ libfohserial.a: $(LIBOFILES)
 install:
 	install -m 644 ./libfohserial.a /usr/lib/
 	install -m 644 ./serial.h /usr/include/foh-serial.h
+	install -d /usr/local/man/man3/
+	install -m 644 ./doc/man/man3/FOHSerial.3 /usr/local/man/man3/
 
 clean:
 	rm -f *.a *.o *.so *.ko

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['if_5fattrib_5fset',['if_attrib_set',['../classserial.html#a51a3e798aa1bb4c2c50a34308b47b4fc',1,'serial']]]
+  ['fohserial',['FOHSerial',['../classFOHSerial.html',1,'FOHSerial'],['../classFOHSerial.html#a9d043cc8235a679af5c1dc68595fba02',1,'FOHSerial::FOHSerial()']]]
 ];

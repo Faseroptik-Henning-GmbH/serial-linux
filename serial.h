@@ -25,13 +25,13 @@
  * 
  */
 
-#include <stdio.h>
-#include <string.h>
-#include <errno.h>
-#include <limits.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstring>
+#include <cerrno>
+#include <climits>
+#include <cstdlib>
 #include <termios.h>
-#include <ctype.h>
+#include <cctype>
 #include <fcntl.h>
 #include <sys/time.h>
 #include <sys/resource.h>
@@ -40,13 +40,23 @@
 #include <sys/un.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <iostream>
 
 /**
  *  @brief Class for defining a serial port in software
  */
-class serial {
+class FOHSerial {
 public:
-	serial() { }
+	/**
+	 * @brief Main constructor
+	 *
+	 * @param port Block device @ /dev
+	 * @param speed Desired speed
+	 * @param param Parameters (see @serialParameters)
+	 *
+	 * @return 0 on success, -1 otherwise
+	 */
+	FOHSerial(const char* port, int speed, uint8_t param);
 
 	/**
 	 *  @brief Set attributes of a serial interface.
@@ -116,4 +126,5 @@ private:
 	int _serialPut(char** buf, size_t size);
 
 	int _serfd; /**< Serial fd */
+	bool _isValid; /**< is valid instance */
 };
