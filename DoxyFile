@@ -6,7 +6,7 @@
 
 DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = "foh-serial"
-PROJECT_NUMBER         = 0.1.1
+PROJECT_NUMBER         = 0.2.0
 PROJECT_BRIEF          = "Yet another serial communication library for linux"
 PROJECT_LOGO           =
 OUTPUT_DIRECTORY       = "doc"
