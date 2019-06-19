@@ -1,4 +1,4 @@
-.TH "FOHSerial" 3 "Tue Mar 19 2019" "Version 0.2.0" "foh-serial" \" -*- nroff -*-
+.TH "FOHSerial" 3 "Wed Jun 19 2019" "Version 0.2.0" "foh-serial" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -59,7 +59,7 @@ FOHSerial \- Class for defining a serial port in software\&.
 .PP 
 Class for defining a serial port in software\&. 
 .PP
-Definition at line 48 of file serial\&.h\&.
+Definition at line 37 of file serial\&.h\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "FOHSerial::FOHSerial (const char * port, int speed, uint8_t param)"
@@ -97,7 +97,7 @@ Sets valid boolean
 .PP
 
 .PP
-Definition at line 302 of file serial\&.cpp\&.
+Definition at line 307 of file serial\&.cpp\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "speed_t FOHSerial::__convBaud (int num)\fC [private]\fP"
@@ -117,7 +117,7 @@ Baud converted to speed_t\&. (max 460800, min 50)
 .PP
 
 .PP
-Definition at line 38 of file serial\&.cpp\&.
+Definition at line 43 of file serial\&.cpp\&.
 .SS "int FOHSerial::_serialPut (char ** buf, size_t size)\fC [private]\fP"
 
 .PP
@@ -137,7 +137,7 @@ Number of bytes written when successful, -1 otherwise\&.
 .PP
 
 .PP
-Definition at line 177 of file serial\&.cpp\&.
+Definition at line 182 of file serial\&.cpp\&.
 .SS "struct termios FOHSerial::if_attrib_set (speed_t speed, int clen, bool parityOn, int parityType, int fctrl, bool stopbx)"
 
 .PP
@@ -165,7 +165,7 @@ New termios structure on success, -1 otherwise\&.
 .PP
 
 .PP
-Definition at line 74 of file serial\&.cpp\&.
+Definition at line 79 of file serial\&.cpp\&.
 .SS "int FOHSerial::readFromSerialPort (char ** buf, size_t size)"
 
 .PP
@@ -185,7 +185,7 @@ Number of bytes read when successful, -1 otherwise\&.
 .PP
 
 .PP
-Definition at line 257 of file serial\&.cpp\&.
+Definition at line 262 of file serial\&.cpp\&.
 .SS "int FOHSerial::setupSerialPort (const char * portname, int speed)"
 
 .PP
@@ -205,7 +205,7 @@ Setup serial port\&.
 .PP
 
 .PP
-Definition at line 204 of file serial\&.cpp\&.
+Definition at line 209 of file serial\&.cpp\&.
 .SS "int FOHSerial::writeToSerialPort (char ** buf, size_t size)"
 
 .PP
@@ -242,17 +242,17 @@ Number of bytes written when successful, -1 otherwise\&.
 .PP
 
 .PP
-Definition at line 236 of file serial\&.cpp\&.
+Definition at line 241 of file serial\&.cpp\&.
 .SH "Member Data Documentation"
 .PP 
 .SS "bool FOHSerial::_isValid\fC [private]\fP"
 is valid instance 
 .PP
-Definition at line 129 of file serial\&.h\&.
+Definition at line 118 of file serial\&.h\&.
 .SS "int FOHSerial::_serfd\fC [private]\fP"
 Serial fd 
 .PP
-Definition at line 128 of file serial\&.h\&.
+Definition at line 117 of file serial\&.h\&.
 
 .SH "Author"
 .PP 

@@ -1,4 +1,4 @@
-.TH "serial.h" 3 "Tue Mar 19 2019" "Version 0.2.0" "foh-serial" \" -*- nroff -*-
+.TH "serial.h" 3 "Wed Jun 19 2019" "Version 0.2.0" "foh-serial" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -7,35 +7,11 @@ serial.h \- Header for dealing with serial communication\&.
 .SH SYNOPSIS
 .br
 .PP
-\fC#include <cstdio>\fP
-.br
-\fC#include <cstring>\fP
-.br
-\fC#include <cerrno>\fP
-.br
-\fC#include <climits>\fP
-.br
-\fC#include <cstdlib>\fP
-.br
-\fC#include <termios\&.h>\fP
-.br
-\fC#include <cctype>\fP
+\fC#include <sys/types\&.h>\fP
 .br
 \fC#include <fcntl\&.h>\fP
 .br
-\fC#include <sys/time\&.h>\fP
-.br
-\fC#include <sys/resource\&.h>\fP
-.br
-\fC#include <sys/types\&.h>\fP
-.br
-\fC#include <sys/socket\&.h>\fP
-.br
-\fC#include <sys/un\&.h>\fP
-.br
-\fC#include <sys/stat\&.h>\fP
-.br
-\fC#include <unistd\&.h>\fP
+\fC#include <termios\&.h>\fP
 .br
 \fC#include <iostream>\fP
 .br

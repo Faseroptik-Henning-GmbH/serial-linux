@@ -25,21 +25,10 @@
  * 
  */
 
-#include <cstdio>
-#include <cstring>
-#include <cerrno>
-#include <climits>
-#include <cstdlib>
-#include <termios.h>
-#include <cctype>
-#include <fcntl.h>
-#include <sys/time.h>
-#include <sys/resource.h>
+
 #include <sys/types.h>
-#include <sys/socket.h>
-#include <sys/un.h>
-#include <sys/stat.h>
-#include <unistd.h>
+#include <fcntl.h>
+#include <termios.h>
 #include <iostream>
 
 /**

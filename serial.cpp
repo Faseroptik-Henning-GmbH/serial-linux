@@ -28,6 +28,11 @@
 
 #include "serial.h"
 
+#include <sys/socket.h>
+#include <sys/un.h>
+#include <unistd.h>
+
+
 /**
  *  @brief Conversion of an integer baud to speed_t baud
  * 

@@ -2,41 +2,29 @@
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001 }
-\DoxyCodeLine{00028 \textcolor{preprocessor}{\#include <cstdio>}}
-\DoxyCodeLine{00029 \textcolor{preprocessor}{\#include <cstring>}}
-\DoxyCodeLine{00030 \textcolor{preprocessor}{\#include <cerrno>}}
-\DoxyCodeLine{00031 \textcolor{preprocessor}{\#include <climits>}}
-\DoxyCodeLine{00032 \textcolor{preprocessor}{\#include <cstdlib>}}
-\DoxyCodeLine{00033 \textcolor{preprocessor}{\#include <termios.h>}}
-\DoxyCodeLine{00034 \textcolor{preprocessor}{\#include <cctype>}}
-\DoxyCodeLine{00035 \textcolor{preprocessor}{\#include <fcntl.h>}}
-\DoxyCodeLine{00036 \textcolor{preprocessor}{\#include <sys/time.h>}}
-\DoxyCodeLine{00037 \textcolor{preprocessor}{\#include <sys/resource.h>}}
-\DoxyCodeLine{00038 \textcolor{preprocessor}{\#include <sys/types.h>}}
-\DoxyCodeLine{00039 \textcolor{preprocessor}{\#include <sys/socket.h>}}
-\DoxyCodeLine{00040 \textcolor{preprocessor}{\#include <sys/un.h>}}
-\DoxyCodeLine{00041 \textcolor{preprocessor}{\#include <sys/stat.h>}}
-\DoxyCodeLine{00042 \textcolor{preprocessor}{\#include <unistd.h>}}
-\DoxyCodeLine{00043 \textcolor{preprocessor}{\#include <iostream>}}
-\DoxyCodeLine{00044 }
-\DoxyCodeLine{\Hypertarget{serial_8h_source_l00048}\mbox{\hyperlink{classFOHSerial}{00048}} \textcolor{keyword}{class }\mbox{\hyperlink{classFOHSerial}{FOHSerial}} \{}
-\DoxyCodeLine{00049 \textcolor{keyword}{public}:}
-\DoxyCodeLine{00059     \mbox{\hyperlink{classFOHSerial_a9d043cc8235a679af5c1dc68595fba02}{FOHSerial}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* port, \textcolor{keywordtype}{int} speed, uint8\_t param);}
-\DoxyCodeLine{00060 }
-\DoxyCodeLine{00075     \textcolor{keyword}{struct }termios \mbox{\hyperlink{classFOHSerial_a06fd114b3c22d3959ee9454475f2c6f8}{if\_attrib\_set}}(speed\_t speed, int clen, bool parityOn, int parityType, int fctrl, bool stopbx);}
-\DoxyCodeLine{00076 }
-\DoxyCodeLine{00085     \textcolor{keywordtype}{int} \mbox{\hyperlink{classFOHSerial_ad76591cc93c0abea4acdbc3ebb47435b}{setupSerialPort}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* portname, \textcolor{keywordtype}{int} speed);}
+\DoxyCodeLine{00029 \textcolor{preprocessor}{\#include <sys/types.h>}}
+\DoxyCodeLine{00030 \textcolor{preprocessor}{\#include <fcntl.h>}}
+\DoxyCodeLine{00031 \textcolor{preprocessor}{\#include <termios.h>}}
+\DoxyCodeLine{00032 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{00033 }
+\DoxyCodeLine{\Hypertarget{serial_8h_source_l00037}\mbox{\hyperlink{classFOHSerial}{00037}} \textcolor{keyword}{class }\mbox{\hyperlink{classFOHSerial}{FOHSerial}} \{}
+\DoxyCodeLine{00038 \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048     \mbox{\hyperlink{classFOHSerial_a9d043cc8235a679af5c1dc68595fba02}{FOHSerial}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* port, \textcolor{keywordtype}{int} speed, uint8\_t param);}
+\DoxyCodeLine{00049 }
+\DoxyCodeLine{00064     \textcolor{keyword}{struct }termios \mbox{\hyperlink{classFOHSerial_a06fd114b3c22d3959ee9454475f2c6f8}{if\_attrib\_set}}(speed\_t speed, int clen, bool parityOn, int parityType, int fctrl, bool stopbx);}
+\DoxyCodeLine{00065 }
+\DoxyCodeLine{00074     \textcolor{keywordtype}{int} \mbox{\hyperlink{classFOHSerial_ad76591cc93c0abea4acdbc3ebb47435b}{setupSerialPort}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* portname, \textcolor{keywordtype}{int} speed);}
+\DoxyCodeLine{00075 }
+\DoxyCodeLine{00085     \textcolor{keywordtype}{int} \mbox{\hyperlink{classFOHSerial_a6bb54e84682142525b9a24a122157234}{writeToSerialPort}}(\textcolor{keywordtype}{char}** buf, \textcolor{keywordtype}{size\_t} size);}
 \DoxyCodeLine{00086 }
-\DoxyCodeLine{00096     \textcolor{keywordtype}{int} \mbox{\hyperlink{classFOHSerial_a6bb54e84682142525b9a24a122157234}{writeToSerialPort}}(\textcolor{keywordtype}{char}** buf, \textcolor{keywordtype}{size\_t} size);}
-\DoxyCodeLine{00097 }
-\DoxyCodeLine{00106     \textcolor{keywordtype}{int} \mbox{\hyperlink{classFOHSerial_a569186c2a1975065f16c473f79f804c4}{readFromSerialPort}}(\textcolor{keywordtype}{char}** buf, \textcolor{keywordtype}{size\_t} size);}
-\DoxyCodeLine{00107 }
-\DoxyCodeLine{00108 \textcolor{keyword}{private}:}
-\DoxyCodeLine{00116     speed\_t \mbox{\hyperlink{classFOHSerial_adad9afc88e0b6626d623fc19abb41c90}{\_\_convBaud}}(\textcolor{keywordtype}{int} num);}
-\DoxyCodeLine{00117 }
-\DoxyCodeLine{00126     \textcolor{keywordtype}{int} \mbox{\hyperlink{classFOHSerial_add9b2e556b56459b2eddc9b71f5c80ed}{\_serialPut}}(\textcolor{keywordtype}{char}** buf, \textcolor{keywordtype}{size\_t} size);}
-\DoxyCodeLine{00127 }
-\DoxyCodeLine{\Hypertarget{serial_8h_source_l00128}\mbox{\hyperlink{classFOHSerial_ab682f6f446d38c7954dfb9cae43b6c73}{00128}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{classFOHSerial_ab682f6f446d38c7954dfb9cae43b6c73}{\_serfd}}; }
-\DoxyCodeLine{\Hypertarget{serial_8h_source_l00129}\mbox{\hyperlink{classFOHSerial_a26a5f17316ae345ebbdb8d99d3ad2a84}{00129}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classFOHSerial_a26a5f17316ae345ebbdb8d99d3ad2a84}{\_isValid}}; }
-\DoxyCodeLine{00130 \};}
+\DoxyCodeLine{00095     \textcolor{keywordtype}{int} \mbox{\hyperlink{classFOHSerial_a569186c2a1975065f16c473f79f804c4}{readFromSerialPort}}(\textcolor{keywordtype}{char}** buf, \textcolor{keywordtype}{size\_t} size);}
+\DoxyCodeLine{00096 }
+\DoxyCodeLine{00097 \textcolor{keyword}{private}:}
+\DoxyCodeLine{00105     speed\_t \mbox{\hyperlink{classFOHSerial_adad9afc88e0b6626d623fc19abb41c90}{\_\_convBaud}}(\textcolor{keywordtype}{int} num);}
+\DoxyCodeLine{00106 }
+\DoxyCodeLine{00115     \textcolor{keywordtype}{int} \mbox{\hyperlink{classFOHSerial_add9b2e556b56459b2eddc9b71f5c80ed}{\_serialPut}}(\textcolor{keywordtype}{char}** buf, \textcolor{keywordtype}{size\_t} size);}
+\DoxyCodeLine{00116 }
+\DoxyCodeLine{\Hypertarget{serial_8h_source_l00117}\mbox{\hyperlink{classFOHSerial_ab682f6f446d38c7954dfb9cae43b6c73}{00117}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{classFOHSerial_ab682f6f446d38c7954dfb9cae43b6c73}{\_serfd}}; }
+\DoxyCodeLine{\Hypertarget{serial_8h_source_l00118}\mbox{\hyperlink{classFOHSerial_a26a5f17316ae345ebbdb8d99d3ad2a84}{00118}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classFOHSerial_a26a5f17316ae345ebbdb8d99d3ad2a84}{\_isValid}}; }
+\DoxyCodeLine{00119 \};}
 \end{DoxyCode}
